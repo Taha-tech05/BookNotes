@@ -1,0 +1,27 @@
+<%- include("header.ejs") -%>
+    <div class="notes" style="margin-top: 20px;">
+        <img src="https://covers.openlibrary.org/b/olid/<%=item.image%>-M.jpg" class="coverimage" alt="Cover image"
+            style="height: 300px;">
+        <div class="picInfo" style="display: flex; flex-direction: column; gap:30px">
+            <h1>
+                <%=item.title%>
+            </h1>
+            <h2>
+                <%=item.dateread%>
+            </h2>
+            <p>Rating:
+                <% for(let i=0;i<item.rating;i++){ %>
+                    ⭐
+                    <%}%>
+            </p>
+        </div>
+        <div class="notes">
+            <h1 style="margin-left: 40%; color: lightblue; margin-top: 10px; margin-bottom: 10px;">NOTES</h1>
+            <h4>
+                <%=item.notes%>
+            </h4>
+        </div>
+    </div>
+
+
+    <%- include("footer.ejs") -%>

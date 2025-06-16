@@ -1,0 +1,25 @@
+<%- include("header.ejs") -%>
+
+    <div class="title">
+        <h1 style="margin-left: 50px;">Update Book</h1>
+    </div>
+    <div class="editSection">
+        <form action="/update" method="post">
+            <h2>Rating</h2>
+            <input name="rating" value='<%=book.rating%>' placeholder=" write rating">
+
+            <h2>Date of Reading</h2>
+            <input name="dateread" value='<%=book.dateread%>' placeholder=" write dateread">
+
+            <h2>Summary</h2>
+            <textarea name="summary" rows="6" cols="50" placeholder="write summary"><%=book.summary%></textarea>
+
+            <h2>Notes</h2>
+            <textarea name="notes" rows="8" cols="50" placeholder="write notes"><%=book.notes%></textarea>
+
+            <button type="submit" class="btn btn-primary" style="display: block;" name="id" value="<%=book.bookid%>">Update</button>
+
+        </form>
+    </div>
+
+    <%- include("footer.ejs") -%>

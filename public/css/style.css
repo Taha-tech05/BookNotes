@@ -1,0 +1,124 @@
+
+body {
+    background-color: #121212;
+}
+.hero{
+    margin-top: 40px;
+    height: 495px;
+}
+.heroImage{
+    float: right;
+    height:80%;
+    width: 50%;
+    border-radius: 20px;
+}
+.heroInfo{
+    width: 40%;
+    position: relative;
+    top:20%;
+}
+a {
+    text-decoration: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav {
+    background-color: #1A1F2B;
+}
+
+footer {
+    background-color: #1C1C1C;
+    color: #CCCCCC;
+}
+
+.title {
+    margin-left: 30%;
+}
+
+h1 {
+    color: #FAFAFA;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.template {
+    background-color: #1E1E1E;
+    margin-top: 50px;
+    height: 500px;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.template h1 {
+    color: #FFFFFF
+}
+
+h2 {
+    color: #DDDDDD
+}
+
+p {
+    color: #B3B3B3
+}
+
+h4 {
+    color: #B3B3B3
+}
+
+.template:hover {
+    transform: scale(1.06);
+    transition: 0.3s ease-in-out;
+}
+
+.coverimage {
+    border-radius: 20px;
+    height: 50%;
+    width: 30%;
+    float: left;
+    position: relative;
+    margin-right: 300px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+.notes {
+    clear: left;
+    margin-left: 50px;
+}
+
+.extraInfo {
+    margin-left: 50px;
+    clear: left
+}
+
+.editSection input {
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.editSection textarea {
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

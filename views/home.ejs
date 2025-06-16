@@ -1,0 +1,101 @@
+<%- include("header.ejs") -%>
+    <% if(!hide){ %>
+        <div class="hero">
+            <img src="\61527cb0c1904b8cbcd184273f3e2054.webp" class="heroImage">
+            <div class="heroInfo">
+            <h1>Your Reading Journey, All in One Place 📘</h1>
+            <p>Revisit what you've read, reflect on what you've learned, and keep your summaries and thoughts organized.</p>
+            <a href='#main'><button class="btn btn-primary">Explore</button></a>
+            </div>
+        </div>
+        <div class="title">
+            <p style="margin-left: 20%; font-weight:bolder; color:	#3FA9F5">Sort by</p>
+            <form action="/sort" method="post" style="display: flex; gap:12%">
+                <button class="btn btn-outline-success" name="sort" value="title">Title</button>
+                <button class="btn btn-outline-success" name="sort" value="latest">Latest</button>
+                <button class="btn btn-outline-success" name="sort" value="best">Best</button>
+            </form>
+        </div>
+
+        <div class="allTemplate" id="main">
+            <% for(let item of books){ %>
+               <div class="template">
+                        <img src="https://covers.openlibrary.org/b/olid/<%=item.image%>-M.jpg" class="coverimage"
+                            alt="Cover image">
+                        <div class="picInfo" style="display: flex; flex-direction: column; gap:30px">
+                            <h1>
+                                <%=item.title%>
+                            </h1>
+                            <h2>
+                                <%=item.dateread%>
+                            </h2>
+                            <p>Rating:
+                                <% for(let i=0;i<item.rating;i++){ %>
+                                    ⭐
+                                    <%}%>
+                            </p>
+                        </div>
+                        <div class="extraInfo">
+                            <p>
+                                <%=item.summary%>
+                            </p>
+                            <div style="display: flex; gap:10%">
+                                <a href=<%="/book/" +encodeURIComponent(item.title)%>><button class="btn btn-primary"
+                                        name="book" value='<%- JSON.stringify(item) %>'>View Notes</button></a>
+                                <form method="post" action="/edit">
+                                    <button class="btn btn-secondary edit" type="submit" name="book"
+                                        value='<%- JSON.stringify(item)%>'>Edit</button>
+                                </form>
+                                <form method="post" action="/delete">
+                                    <button class="btn btn-secondary delete" name="bookid"
+                                        value='<%=item.bookid%>'>Delete</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                    <% } else{%>
+                        <div class="SearchElement">
+                           <div class="template">
+
+                                    <img src="https://covers.openlibrary.org/b/olid/<%=search.image%>-M.jpg"
+                                        class="coverimage" alt="Cover image">
+                                    <div class="picInfo" style="display: flex; flex-direction: column; gap:30px">
+                                        <h1>
+                                            <%=search.title%>
+                                        </h1>
+                                        <h2>
+                                            <%=search.dateread%>
+                                        </h2>
+                                        <p>Rating:
+                                            <% for(let i=0;i<search.rating;i++){ %>
+                                                ⭐
+                                                <%}%>
+                                        </p>
+                                    </div>
+                                    <div class="extraInfo">
+                                        <p>
+                                            <%=search.summary%>
+                                        </p>
+                                        <div style="display: flex; gap:10%">
+                                            <a href=<%="/book/" +encodeURIComponent(search.title)%>><button
+                                                    class="btn btn-primary" name="book"
+                                                    value='<%- JSON.stringify(search) %>'>View Notes</button></a>
+                                            <form method="post" action="/edit">
+                                                <button class="btn btn-secondary edit" type="submit" name="book"
+                                                    value='<%- JSON.stringify(search) %>'>Edit</button>
+                                            </form>
+                                            <form method="post" action="/delete">
+                                                <button class="btn btn-secondary delete" name="bookid"
+                                                    value='<%=search.bookid%>'>Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <%}%>
+        </div>
+
+
+        <%- include("footer.ejs") -%>
